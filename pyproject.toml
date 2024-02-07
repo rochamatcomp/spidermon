@@ -1,0 +1,73 @@
+[project]
+name = "spidermon"
+version = "1.20.1"
+description = "Spidermon is a framework to build monitors for Scrapy spiders."
+authors = ["Zyte <opensource@zyte.com>"]
+maintainers = [
+  "Renne Rocha <renne@rocha.dev.br>",
+  "Scrapinghub"
+]
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+classifiers=[
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Scrapy",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: System :: Monitoring",
+]
+requires-python = ">= 3.8"
+
+dependencies = [
+    "jsonschema[format] ~= 4.21",
+    "python-slugify ~= 8.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/scrapinghub/spidermon"
+Documentation = "https://spidermon.readthedocs.io"
+Repository = "https://github.com/scrapinghub/spidermon.git"
+"Bug Tracker" = "https://github.com/scrapinghub/spidermon/issues"
+Changelog = "https://github.com/scrapinghub/spidermon/blob/master/CHANGES.rst"
+
+[project.optional-dependencies]
+# Specific monitors and tools to support notifications and reports
+monitoring = [
+    "Jinja2 ~= 3.1",
+    "boto3 ~= 1.34",
+    "itemadapter ~= 0.8",
+    "premailer ~= 3.10",
+    "requests ~= 2.31",
+    "scrapinghub ~= 2.4",
+    "scrapinghub-entrypoint-scrapy ~= 0.17",
+    "Scrapy ~= 2.11",
+    "sentry-sdk ~= 1.40",
+    "slack-sdk ~= 3.26"
+]
+tests = [
+    "pytest ~= 8.0",
+    "pytest-cov ~= 4.1",
+    "pytest-mock ~= 3.12"
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages]
+find = {}   # Scan the project directory with the default parameters
+
+[tool.setuptools.package-data]
+spidermon = ["VERSION"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
